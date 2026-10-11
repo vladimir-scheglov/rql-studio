@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+/* Расширяем попап Quick Fix и контекстные меню Monaco,
+   чтобы длинные заголовки вроде "→ @doc.incidentId" не обрезались */
+.monaco-editor .context-view {
+  min-width: 320px !important;
+}
+
+.monaco-editor .context-view .action-widget,
+.monaco-editor .context-view .actions-container {
+  min-width: 320px;
+}
+
+.monaco-editor .context-view .action-label {
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+.animate-fade-in {
+  animation: fade-in 0.15s ease-out;
+}
+code.cross-ref {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+/* Стили для просмотра Markdown в GuideModal */
+.guide-content {
+  color: #1f2937;
+  line-height: 1.7;
+  font-size: 14px;
+}
+.guide-content h1 {
+  font-size: 24px;
+  font-weight: 600;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 8px;
+  margin: 24px 0 16px;
+  color: #111827;
+}
+.guide-content h2 {
+  font-size: 20px;
+  font-weight: 600;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 6px;
+  margin: 32px 0 12px;
+  color: #111827;
+  scroll-margin-top: 16px;
+}
+.guide-content h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 20px 0 8px;
+  color: #374151;
+  scroll-margin-top: 16px;
+}
+.guide-content h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 16px 0 6px;
+  color: #4b5563;
+}
+.guide-content p {
+  margin: 10px 0;
+}
+.guide-content ul,
+.guide-content ol {
+  padding-left: 24px;
+  margin: 8px 0;
+}
+.guide-content li {
+  margin: 4px 0;
+}
+.guide-content code {
+  background: #f3f4f6;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-family: "SF Mono", Monaco, Consolas, "Liberation Mono", monospace;
+  color: #be185d;
+}
+.guide-content pre {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 14px 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 12px 0;
+}
+.guide-content pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+.guide-content table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 12px 0;
+  font-size: 13px;
+}
+.guide-content th,
+.guide-content td {
+  border: 1px solid #e5e7eb;
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+.guide-content th {
+  background: #f9fafb;
+  font-weight: 600;
+}
+.guide-content blockquote {
+  border-left: 4px solid #d1d5db;
+  padding-left: 16px;
+  color: #6b7280;
+  margin: 12px 0;
+  font-style: italic;
+}
+.guide-content hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 32px 0;
+}
+.guide-content a {
+  color: #2563eb;
+  text-decoration: none;
+}
+.guide-content a:hover {
+  text-decoration: underline;
+}
