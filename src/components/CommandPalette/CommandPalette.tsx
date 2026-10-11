@@ -214,9 +214,10 @@ export function CommandPalette() {
     const filtered = useMemo(() => {
         if (!query.trim()) {
             // Без запроса — показываем действия и файлы
-            return commands
-                .filter(c => c.kind === 'action' || c.kind === 'file')
-                .slice(0, 30);
+            return commands.toSorted((a, b) => {
+                const priority = (c: Command) => (c.kind === 'action' || c.kind === 'file') ? 0 : 1;
+                return priority(a) - priority(b);
+            });
         }
 
         return commands
